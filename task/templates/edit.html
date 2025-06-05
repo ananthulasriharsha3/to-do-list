@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% endblock style %}
+
+{% block content %}
+<div>
+<form action=""  method="POST" >
+    {% csrf_token %}
+    <fieldset>
+        <legend>UPDATE LIST</legend>
+        <label for="tname">Task Name:</label>
+        <input type="text" id="tname" name="tname"> <br><br>
+        <label for="tdesc">Task Desc:</label>
+        <textarea name="tdesc" id="tdesc"></textarea> <br><br>
+        <label for="tdate">End Date:</label>
+        <input type="date" name="tdate" id="tdate"> <br><br>
+       <center> <button type="submit" >ADD</button></center>
+    </fieldset>
+ </form>
+</div>
+{% endblock content %}

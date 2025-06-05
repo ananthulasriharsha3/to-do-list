@@ -1,0 +1,310 @@
+:root {
+    --bg-main: #e0f2fe;
+    --bg-card: #ffffff;
+    --primary: #0e7490;
+    --secondary: #ea580c;
+    --accent: #0369a1;
+    --text-main: #020617;
+    --text-light: #1e293b;
+    --success: #15803d;
+    --danger: #b91c1c;
+    --shadow: rgba(14, 116, 144, 0.15);
+    --gradient-1: #7dd3fc;
+    --gradient-2: #fed7aa;
+    --button-text: #ffffff;
+    --link-text: #0e7490;
+    --link-hover: #0369a1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-main);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--bg-main);
+    background-image: 
+        radial-gradient(circle at 15% 15%, var(--gradient-1) 0%, transparent 30%),
+        radial-gradient(circle at 85% 85%, var(--gradient-2) 0%, transparent 30%);
+    padding: 1rem;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: 
+        radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.15), transparent 50%),
+        radial-gradient(circle at 100% 100%, rgba(129, 140, 248, 0.15), transparent 50%);
+    pointer-events: none;
+}
+
+#loop {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+}
+
+form {
+    background: var(--bg-card);
+    margin: 1rem auto;
+    max-width: 400px;
+    padding: 1.25rem;
+    border-radius: 16px;
+    box-shadow: 
+        0 4px 20px var(--shadow),
+        0 0 0 2px rgba(8, 145, 178, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+}
+
+form:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 30px var(--shadow),
+        0 0 0 2px rgba(8, 145, 178, 0.1);
+}
+
+fieldset {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: var(--bg-main);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(8, 145, 178, 0.1);
+}
+
+input[type="text"]::placeholder {
+    color: var(--text-light);
+    opacity: 0.8;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    background: var(--primary);
+    color: #ffffff !important;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(14, 116, 144, 0.25);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.5px;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    background: var(--accent);
+    box-shadow: 0 4px 12px rgba(14, 116, 144, 0.35);
+    color: #ffffff !important;
+}
+
+button * {
+    color: #ffffff !important;
+}
+
+/* Override any inherited colors for buttons */
+form button,
+#loop_in button,
+article button {
+    color: #ffffff !important;
+}
+
+form button *,
+#loop_in button *,
+article button * {
+    color: #ffffff !important;
+}
+
+/* Make delete/edit links more visible */
+.delete-btn,
+.edit-btn {
+    color: #ffffff !important;
+    background: var(--primary);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.delete-btn:hover,
+.edit-btn:hover {
+    background: var(--accent);
+    color: #ffffff !important;
+    transform: translateY(-1px);
+}
+
+/* Ensure form button text is visible */
+form button {
+    background: var(--primary);
+    color: #ffffff !important;
+}
+
+#loop_in {
+    color: var(--text-main) !important;
+    background: var(--bg-card);
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 
+        0 2px 10px var(--shadow),
+        0 0 0 1px rgba(8, 145, 178, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#loop_in:hover {
+    color: var(--text-main) !important;
+    background: var(--bg-card);
+    transform: translateY(-2px);
+    box-shadow: 
+        0 4px 15px var(--shadow),
+        0 0 0 1px rgba(8, 145, 178, 0.1);
+}
+
+#loop_in::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary), var(--secondary));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#loop_in:hover::after {
+    opacity: 1;
+}
+
+article {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.25rem;
+    font-size: 1rem;
+    color: var(--text-main) !important;
+    font-weight: 500;
+}
+
+a {
+    color: var(--link-text) !important;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    background: transparent;
+    font-size: 0.95rem;
+}
+
+a:hover {
+    background: rgba(14, 116, 144, 0.15);
+    color: var(--link-hover) !important;
+}
+
+.completed {
+    color: var(--success) !important;
+    text-decoration: line-through;
+    opacity: 0.9;
+    font-weight: 600;
+}
+
+.pending {
+    color: var(--danger) !important;
+    font-weight: 700;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0.5rem;
+    }
+
+    form, #loop {
+        padding: 0 0.25rem;
+    }
+    
+    form {
+        padding: 1rem;
+        margin: 0.75rem auto;
+    }
+    
+    #loop_in {
+        padding: 0.85rem;
+    }
+    
+    button {
+        padding: 0.7rem 1.25rem;
+    }
+    
+    input[type="text"] {
+        padding: 0.7rem 1rem;
+    }
+}
+
+/* Force color inheritance for nested elements */
+#loop_in *, article *, form * {
+    color: inherit;
+}

@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+
+    {% load static %}
+    <title>To Do List✔</title>
+    {% block  style%}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    {% endblock style %}
+
+
+
+     {% block content %}
+    <div id="full">
+     <form action=""  method="POST" >
+        {% csrf_token %}
+        <fieldset>
+            <legend>TO DO LIST</legend>
+            <label for="tname">Task Name:</label>
+            <input type="text" id="tname" name="tname"> <br><br>
+            <label for="tdesc">Task Desc:</label>
+            <textarea name="tdesc" id="tdesc"></textarea> <br><br>
+            <label for="tdate">End Date:</label>
+            <input type="date" name="tdate" id="tdate" required> <br><br>
+            <center><button type="submit" >ADD</button></center>
+        </fieldset>
+     </form><br>
+     <div id="loop">
+
+        {% for data in datas %}
+        <div id="loop_in" >
+        Task Name: {{ data.t_name}} <br><br>
+        Task Desc: {{ data.t_desc }} <br><br>
+        Dead Line: {{ data.t_date }} <br><br> 
+        <article>
+        <button ><a href="{% url 'edit' data.id %}">update</a></button> 
+        <button ><a href="{% url 'delete' data.id  %}">Completed</a></button> <br><br> 
+        </article>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
